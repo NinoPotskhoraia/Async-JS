@@ -1,0 +1,39 @@
+{
+  "subjects": [
+    {
+      "subject": "math",
+      "num": "23",
+      "id": 5
+    }
+  ],
+  "pupils": [
+    {
+      "name": "jane",
+      "birth": "2022-11-01",
+      "gender": "male",
+      "id": 2
+    },
+    {
+      "name": "Nino Potskhoraia",
+      "birth": "2022-10-19",
+      "gender": "female",
+      "id": 3
+    }
+  ],
+  "teachers": [
+    {
+      "name": "Nino Potskhoraia",
+      "birth": "2022-10-05",
+      "teachingSubject": "math",
+      "experience": "4",
+      "id": 1
+    },
+    {
+      "name": "james",
+      "birth": "2022-10-19",
+      "teachingSubject": "english",
+      "experience": "3",
+      "id": 2
+    }
+  ]
+}

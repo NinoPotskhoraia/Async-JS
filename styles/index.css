@@ -1,0 +1,47 @@
+
+li {
+  margin-right: 30px;
+}
+
+h1,h2{
+  color:white;
+  padding-top:2em;
+  padding-bottom:1em;
+  max-width: 60%;
+  line-height: 70px;
+  font-size: 95px;
+  letter-spacing: 5px;
+  margin: 0 auto;
+}
+
+h2{
+  padding:0;
+  padding-bottom: 10px;
+  font-size: 45px;
+  background-color: black;
+  max-width:70%;
+  text-align: center;
+  border-radius: 5px;
+  border:2px solid rgb(149, 145, 145);
+  margin-bottom: 20px;
+}
+
+h3{
+  font-size: 24px;
+}
+
+.card-body, .card{
+ background-color: rgba(255, 252, 255, 0.7);
+ border-radius: 1rem;
+}
+
+section {
+  background-image: url("../assets/pexels-monstera-6238297.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height:90.8vh;
+}
+
+
+

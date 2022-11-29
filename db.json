@@ -1,15 +1,15 @@
 {
   "subjects": [
     {
-      "subject": "math",
-      "num": "23",
+      "subject": "chemistry",
+      "num": "3",
       "id": 5
     }
   ],
   "pupils": [
     {
-      "name": "jane",
-      "birth": "2022-11-01",
+      "name": "harry",
+      "birth": "2022-11-29",
       "gender": "male",
       "id": 2
     },

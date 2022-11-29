@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.scss" />
+
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -20,47 +20,86 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./styles/index.css" />
     <title>Alfa - School Managemnet System</title>
   </head>
   <body>
-    <div class="container">
+    <header>
       <nav
-        class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center"
+        class="navbar navbar-expand-lg navbar-light bg-light px-5 d-flex justify-content-between"
       >
         <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-4x fa-graduation-cap"></i>
-          <h1>Welcome to Alfa - your School Management System</h1>
+          <i class="fa-solid fa-2x fa-graduation-cap"></i>
         </a>
-      </nav>
-
-      <div class="hero col-xs-1 text-center mt-5">
-        <h2>Please Select Category</h2>
-
-        <div class="dropdown mt-5">
-          <a
-            class="btn btn-secondary dropdown-toggle"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+        <div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            Categories
-          </a>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/lms.html">LMS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/pupils.html">Pupils</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/teachers.html">Teachers</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="./pages/lms.html">LMS</a>
-            <a class="dropdown-item" href="./pages/pupils.html">Pupils</a>
-            <a class="dropdown-item" href="./pages/teachers.html">Teachers</a>
-            <a class="dropdown-item" href="./pages/groups.html">Groups</a>
-            <a class="dropdown-item" href="./pages/gradebooks.html"
-              >Gradebooks</a
-            >
-          </div>
+    <section class="hero col-xs-1 text-center">
+      <div class="container container-fluid p-0">
+        <h1>Welcome to Alfa</h1>
+        <h2>your School Management System</h2>
+        <!-- <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+            <div class="card shadow-2-strong">
+              <div class="card-body h-100 text-center">
+                <h3>Please Select Category</h3>
+
+                <div class="dropdown mt-2">
+                  <a
+                    class="btn btn-secondary dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Categories
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="./pages/lms.html">LMS</a>
+                    <a class="dropdown-item" href="./pages/pupils.html"
+                      >Pupils</a
+                    >
+                    <a class="dropdown-item" href="./pages/teachers.html"
+                      >Teachers</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
-    </div>
+    </section>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

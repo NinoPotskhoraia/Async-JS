@@ -20,17 +20,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <link rel="stylesheet" href="../styles/index.css" />
   </head>
   <body>
     <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-light px-5 d-flex justify-content-between"
-      >
-        <a class="navbar-brand" href="../index.html">
-          <i class="fa-solid fa-2x fa-graduation-cap"></i>
-        </a>
-        <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html">
+            <i class="fa-solid fa-2x fa-graduation-cap"></i>
+          </a>
+
           <button
             class="navbar-toggler"
             type="button"
@@ -42,59 +48,110 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="../index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./lms.html">LMS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pupils.html">Pupils</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./teachers.html">Teachers</a>
-            </li>
-          </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./lms.html">LMS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pupils.html">Pupils</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./pages/teachers.html"
+                  >Teachers</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
 
     <section>
-      <div class="container text-center">
-        <form>
-          <input id="name" type="text" placeholder="full name" />
-          <input id="birth" type="date" placeholder="date of birth" />
-          <input id="teaching" type="text" placeholder="subject" />
-          <input id="years" type="number" placeholder="years of experience" />
-          <button id="sub" type="submit">Add Teacher</button>
-        </form>
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body">
+                <div class="d-lg-flex w-100 justify-content-between">
+                  <form
+                    class="d-lg-flex justify-content-between align-items-start teacher-form"
+                  >
+                    <div
+                      class="d-flex flex-column justify-content-center align-items-start"
+                    >
+                      <div class="input-outline">
+                        <input id="name" type="text" placeholder="full name" />
+                      </div>
+                      <div class="input-outline">
+                        <input
+                          id="birth"
+                          type="date"
+                          placeholder="date of birth"
+                        />
+                      </div>
+                      <button
+                        id="sub"
+                        type="submit"
+                        class="btn btn-secondary teacher-btn"
+                      >
+                        Add Teacher
+                      </button>
+                    </div>
+                    <div>
+                      <div class="input-outline">
+                        <input
+                          id="teaching"
+                          type="text"
+                          placeholder="subject"
+                        />
+                      </div>
+                      <div class="input-outline">
+                        <input
+                          id="years"
+                          type="number"
+                          placeholder="years of experience"
+                        />
+                      </div>
+                    </div>
+                  </form>
+                  <div class="d-lg-flex find align-items-start">
+                    <!-- <button class="read mt-1">Show All Pupils</button> -->
+                    <div>
+                      <label for="teacherId">Find Teacher by ID</label>
+                      <div class="input-outline">
+                        <input id="teacherId" type="number" placeholder="ID" />
+                      </div>
+                    </div>
+                    <button id="findTeacher" class="btn btn-secondary">
+                      Submit
+                    </button>
+                    <p class="mt-3" id="foundPupil"></p>
+                  </div>
+                </div>
+                <!-- <button class="read mt-1">Show Lessons</button> -->
+                <table class="table table-sm pupilsTable text-center mb-5">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Date of Birth</th>
+                      <th>Subject</th>
+                      <th>Years of Experience</th>
+                    </tr>
+                  </thead>
+                </table>
+                <button class="btn homeBtn" href="../index.html" role="button">
+                  <a href="../index.html">Back to Main Page</a>
+                </button>
+              </div>
 
-        <div class="mt-5 mb-5">
-          <button class="read mt-1">Show All Teachers</button>
-          <label for="teacherId">Find Teacher by ID</label>
-          <input id="teacherId" type="number" placeholder="ID" />
-          <button id="findTeacher">Submit</button>
-          <p class="mt-3" id="foundTeacher"></p>
-        </div>
-
-        <table class="table teachersTable">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Full Name</th>
-              <th>Date of Birth</th>
-              <th>Subject</th>
-              <th>Years of Experience</th>
-            </tr>
-          </thead>
-        </table>
-
+              <!-- 
         <div class="mt-3">
           <div class="mt-5">
             <h5>Update Teacher Information</h5>
@@ -131,7 +188,10 @@
         </div>
         <a class="btn btn-secondary" href="../index.html" role="button"
           >Back to Main Page</a
-        >
+        > -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

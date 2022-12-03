@@ -1,6 +1,16 @@
-import {LMS} from './lms.mjs';
+import {CRUD} from './crud.mjs';
 
-class Teachers extends LMS{
+const teacherName  = document.getElementById('name');
+const birthDay = document.getElementById('birthday');
+const teaching = document.getElementById('teaching');
+const years = document.getElementById('years');
+const teachersTable = document.querySelector('.teachersTable');
+const teacherId = document.getElementById('teacherId');
+const findTeacher = document.getElementById('findTeacher');
+const foundTeacher = document.getElementById('foundTeacher');
+const teacherForm = document.querySelector('.teacher-form');
+
+class Teachers extends CRUD{
     
   populateTable(data){
      
@@ -14,24 +24,24 @@ class Teachers extends LMS{
   
     // insert data
     data.forEach(item => {
-        var row = table.insertRow();
+        var row = teachersTable.insertRow();
         addCell(row, item.id);
         addCell(row, item.name);
         addCell(row, item.birth);
         addCell(row, item.teachingSubject);
         addCell(row, item.experience);
+        const del = document.createElement('button');
+        del.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        row.appendChild(del);
+        del.addEventListener('click',()=>{
+          teacher.deleteData(`http://localhost:3000/teachers/${item.id}`)
+          .then(getData())
+          .catch(err=>console.log(err.message));
+        })
     });
   }
 
-  async findOne(id=0, url=''){
-    const response = await fetch(url + `/${id}`);
-    if(response.status !== 200){
-      throw new Error('could not fetch data');
-    }
-  
-    const data = await response.json();
-    return data;
-  }
+
 
 
 }
@@ -39,58 +49,30 @@ class Teachers extends LMS{
 
 const teacher = new Teachers();
 
-const teacherName  = document.getElementById('name');
-const birthDay = document.getElementById('birth');
-const teaching = document.getElementById('teaching');
-const years = document.getElementById('years');
-const subBtn = document.getElementById('sub');
-const table = document.querySelector('.teachersTable');
-const readData = document.querySelector('.read');
-const update = document.querySelector('.update');
-const del = document.querySelector('.del');
-const teacherId = document.getElementById('teacherId');
-const findBtn = document.getElementById('findTeacher');
-const found = document.getElementById('foundTeacher');
-const idToUpdate = document.getElementById('idToUpdate');
-const idToDelete = document.getElementById('idToDelete');
-const updatedName = document.getElementById('updatedName');
-const updatedBirth = document.getElementById('updatedBirth');
-const updatedTeaching = document.getElementById('updatedTeach');
-const updatedYears = document.getElementById('updatedYears');
 
-subBtn.addEventListener('click', (event)=>{
-  event.preventDefault();
-   teacher.postData('http://localhost:3000/teachers', {name:teacherName.value, birth:birthDay.value, teachingSubject:teaching.value, experience:years.value })
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err.message));
 
-});
-
-readData.addEventListener('click', ()=>{
- teacher.getData('http://localhost:3000/teachers')
-  .then(data=>teacher.populateTable(data))
-  .catch(err=>console.log(err.message))
-});
-
-findBtn.addEventListener('click', ()=>{
-  let id = Number(teacherId.value);
-  teacher.findOne(id, 'http://localhost:3000/teachers')
-  .then(data=>found.innerHTML = `Name: ${data.name}, Date of Birth: ${data.birth}, Subject: ${data.teachingSubject}, Experience: ${data.experience}`)
-  .catch(err=>found.innerHTML = 'There are no registered teachers with given ID')
+window.addEventListener('load', ()=>{
+  teacher.getData('http://localhost:3000/teachers')
+  .then(data=>{teacher.populateTable(data);
+  console.log(data);})
+  .catch(err=>console.log(err.message));
+  console.log('hi');
 })
 
+teacherForm.addEventListener('submit', ()=>{
+  if(teacherName.value && teaching.value){
+    teacher.postData('http://localhost:3000/teachers', {name:teacherName.value, birth:birthDay.value, teachingSubject:teaching.value, experience:years.value })
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err.message));}
+   
+})
 
-update.addEventListener('click', ()=>{
-  const id = Number(idToUpdate.value);
-  teacher.updateData(`http://localhost:3000/teachers/${id}`, {name:updatedName.value, birth: updatedBirth.value, teachingSubject:updatedTeaching.value, experience:updatedYears.value})
-  .then(getData('http://localhost:3000/teachers'))
-  .catch(err=>console.log(err.message));
+ 
+findTeacher.addEventListener('click', ()=>{
+  teacher.findOne(teacherId.value, 'http://localhost:3000/teachers')
+  .then(data=>foundTeacher.innerHTML = `Name: ${data.name}, Date of Birth: ${data.birth}, Subject: ${data.teachingSubject}, Experience: ${data.experience}` )
+  .catch(err=>foundTeacher.innerHTML = 'There are no registered teachers with given ID')
 });
 
-del.addEventListener('click', ()=>{
-  const id = Number(idToDelete.value);
-  teacher.deleteData(`http://localhost:3000/teachers/${id}`)
-  .then(getData('http://localhost:3000/teachers'))
-  .catch(err=>console.log(err.message));
-});
+
 

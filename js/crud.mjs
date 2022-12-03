@@ -28,6 +28,16 @@ export class CRUD {
       const data = await response.json();
       return data;
     }
+
+    async findOne(id=0, url=''){
+      const response = await fetch(url + `/${id}`);
+      if(response.status !== 200){
+        throw new Error('could not fetch data');
+      }
+    
+      const data = await response.json();
+      return data;
+    }
     
     async updateData(url='', data={}) {
      

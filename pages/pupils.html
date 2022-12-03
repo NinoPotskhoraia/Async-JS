@@ -27,6 +27,13 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="../styles/index.css" />
   </head>
 
@@ -77,7 +84,9 @@
           <div class="col-12">
             <div class="card shadow-2-strong">
               <div class="card-body">
-                <div class="d-lg-flex w-100 justify-content-between">
+                <div
+                  class="d-lg-flex w-100 align-items-center justify-content-between"
+                >
                   <form class="d-lg-flex justify-content-between pupil-form">
                     <div
                       class="d-flex flex-column justify-content-center align-items-start"
@@ -102,7 +111,7 @@
                       </button>
                     </div>
                   </form>
-                  <div class="d-lg-flex find align-items-start">
+                  <div class="find">
                     <!-- <button class="read mt-1">Show All Pupils</button> -->
                     <div>
                       <label for="pupilId">Find Pupil by ID</label>
@@ -117,7 +126,7 @@
                   </div>
                 </div>
                 <!-- <button class="read mt-1">Show Lessons</button> -->
-                <table class="table pupilsTable text-center mb-5">
+                <table class="table table-sm pupilsTable text-center mb-5">
                   <thead>
                     <tr>
                       <th>ID</th>
